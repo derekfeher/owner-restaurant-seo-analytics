@@ -91,7 +91,7 @@ Calculates branded vs unbranded percentages using dataset-specific logic:
 CASE WHEN dataset = 'restaurant' THEN
     SUM(total_clicks) OVER (PARTITION BY restaurant_id, domain, date)
 WHEN dataset = 'cuisine' THEN 
-    SUM(total_clicks) OVER (PARTITION BY cuisines, date) 
+    SUM(total_clicks) OVER (PARTITION BY cuisine_type, date) 
 END AS total_universal_clicks
 ```
 
