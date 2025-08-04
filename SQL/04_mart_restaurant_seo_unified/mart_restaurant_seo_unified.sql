@@ -7,6 +7,7 @@ restaurant_dataset AS (
     s.restaurant_id,
     s.domain,
     c.cuisines, -- Single-element array
+    NULL AS cuisine_type,
     s.is_branded,
     s.date,
     1 AS num_restaurants, -- Always 1 for restaurant level
@@ -44,6 +45,7 @@ cuisine_dataset AS (
     NULL AS restaurant_id, -- Not applicable for cuisine level
     NULL AS domain, -- Not applicable for cuisine level
     ARRAY_CONSTRUCT(cuisine_type) AS cuisines, -- Single-element array with cuisine
+    cuisine_type,
     is_branded,
     date,
     COUNT(DISTINCT restaurant_id) AS num_restaurants,
@@ -71,13 +73,13 @@ final_with_percentages AS (
     CASE WHEN dataset = 'restaurant' THEN
         SUM(total_clicks) OVER (PARTITION BY restaurant_id, domain, date)
          WHEN dataset = 'cuisine' THEN 
-        SUM(total_clicks) OVER (PARTITION BY cuisines, date) 
+        SUM(total_clicks) OVER (PARTITION BY cuisine_type, date) 
     END AS total_universal_clicks,
     
     CASE WHEN dataset = 'restaurant' THEN
         SUM(total_impressions) OVER (PARTITION BY restaurant_id, domain, date)
          WHEN dataset = 'cuisine' THEN 
-        SUM(total_impressions) OVER (PARTITION BY cuisines, date) 
+        SUM(total_impressions) OVER (PARTITION BY cuisine_type, date) 
     END AS total_universal_impressions,
   FROM combined_data
 )
