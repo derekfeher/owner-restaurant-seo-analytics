@@ -1,7 +1,7 @@
 # Restaurant SEO Analytics Pipeline
 
 ## Overview
-This project builds a comprehensive data transformation pipeline to analyze restaurant SEO performance, specifically focusing on **branded vs unbranded search analysis**. The solution transforms raw Google Search Console data into actionable insights for restaurant marketing teams.
+This project builds a comprehensive data transformation pipeline to analyze restaurant SEO performance, specifically focusing on **branded vs unbranded search analysis**. The solution transforms raw Google Search Console data into actionable insights for GTM teams.
 
 ## 🎯 Business Problem
 Restaurants need to understand:
