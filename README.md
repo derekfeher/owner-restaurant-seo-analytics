@@ -102,7 +102,7 @@ ORDER BY cuisine_type, is_branded;
 
 **Challenge:** Restaurants change cuisine types over time  
 **Solution:** SCD Type 2 with temporal joins  
-**Details:** See [SCD Question/scd_approach.md](SCD_Question/scd_approach.md)
+**Details:** See `SCD_Question/scd_approach.md`
 
 **Key Features:**
 - Non-overlapping validity periods
