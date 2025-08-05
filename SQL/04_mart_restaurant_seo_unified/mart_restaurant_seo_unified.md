@@ -209,6 +209,8 @@ ORDER BY cuisines, is_branded, date;
 - Check for missing cuisine classifications
 - Verify branded classification accuracy periodically
 
+#### Future Improvements
+- **Time period aggregations**: Pre-aggregate key metrics at the daily, monthly, quarterly, yearly level, by having a "aggregation_level" column that allows the user to filter by the time period of interest. This approach prevents incorrect aggregation when using BI tools.
 ---
 
 ## The Bottom Line
